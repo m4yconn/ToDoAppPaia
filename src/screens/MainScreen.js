@@ -24,7 +24,10 @@ export default function MainScreen(){
                             let listTemp = [...pending]
                             listTemp.push(task)
                             setPending(listTemp)
+                            setTask('')
                         }}
+                        value = {task}
+                        
                     /> : <></>}
             <View style={styles.subContainer}>
                 <Text style={styles.boxText}>Pendentes</Text>
@@ -47,6 +50,23 @@ export default function MainScreen(){
 
                                         setPending(pendings)
                                         setCompleted(completeds)
+                                    }}
+
+                                    onPressEdit = {() => {
+                                
+                                        let pendings = []
+                                        
+                                        pending.map((e2) => {
+
+                                            if(e2 != e)
+                                                pendings.push(e2)
+                                              
+                                        })
+
+                                        setPending(pendings)
+                                        setInput(e)
+                                        setTask(e)
+
                                     }}
                             />
                         })
